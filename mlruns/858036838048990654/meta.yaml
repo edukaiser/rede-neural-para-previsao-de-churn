@@ -1,0 +1,7 @@
+artifact_location: file:///C:/dev/Hands-ON - Projetos - TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/858036838048990654
+creation_time: 1776820300486
+experiment_id: '858036838048990654'
+last_update_time: 1776820300486
+lifecycle_stage: active
+name: Churn_Prediction_FIAP
+workspace: default

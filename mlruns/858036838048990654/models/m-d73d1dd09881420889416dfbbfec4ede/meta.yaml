@@ -1,0 +1,10 @@
+artifact_location: file:///C:/dev/Hands-ON - Projetos - TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/858036838048990654/models/m-d73d1dd09881420889416dfbbfec4ede/artifacts
+creation_timestamp: 1776820301100
+experiment_id: '858036838048990654'
+last_updated_timestamp: 1776820304664
+model_id: m-d73d1dd09881420889416dfbbfec4ede
+model_type: null
+name: logistic_model
+source_run_id: 47a2f2dccb2547c6aaa55379457f0ca6
+status: 2
+status_message: null

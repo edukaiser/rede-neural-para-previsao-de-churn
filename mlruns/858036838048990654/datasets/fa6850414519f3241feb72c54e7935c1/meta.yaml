@@ -1,0 +1,30 @@
+digest: 991cca46
+name: Churn_Dataset_FIAP
+profile: '{"num_rows": 7043, "num_elements": 232419}'
+schema: '{"mlflow_colspec": [{"type": "string", "name": "CustomerID", "required":
+  true}, {"type": "long", "name": "Count", "required": true}, {"type": "string", "name":
+  "Country", "required": true}, {"type": "string", "name": "State", "required": true},
+  {"type": "string", "name": "City", "required": true}, {"type": "long", "name": "Zip
+  Code", "required": true}, {"type": "string", "name": "Lat Long", "required": true},
+  {"type": "double", "name": "Latitude", "required": true}, {"type": "double", "name":
+  "Longitude", "required": true}, {"type": "string", "name": "Gender", "required":
+  true}, {"type": "string", "name": "Senior Citizen", "required": true}, {"type":
+  "string", "name": "Partner", "required": true}, {"type": "string", "name": "Dependents",
+  "required": true}, {"type": "long", "name": "Tenure Months", "required": true},
+  {"type": "string", "name": "Phone Service", "required": true}, {"type": "string",
+  "name": "Multiple Lines", "required": true}, {"type": "string", "name": "Internet
+  Service", "required": true}, {"type": "string", "name": "Online Security", "required":
+  true}, {"type": "string", "name": "Online Backup", "required": true}, {"type": "string",
+  "name": "Device Protection", "required": true}, {"type": "string", "name": "Tech
+  Support", "required": true}, {"type": "string", "name": "Streaming TV", "required":
+  true}, {"type": "string", "name": "Streaming Movies", "required": true}, {"type":
+  "string", "name": "Contract", "required": true}, {"type": "string", "name": "Paperless
+  Billing", "required": true}, {"type": "string", "name": "Payment Method", "required":
+  true}, {"type": "double", "name": "Monthly Charges", "required": true}, {"type":
+  "double", "name": "Total Charges", "required": true}, {"type": "string", "name":
+  "Churn Label", "required": true}, {"type": "long", "name": "target", "required":
+  true}, {"type": "long", "name": "Churn Score", "required": true}, {"type": "long",
+  "name": "CLTV", "required": true}, {"type": "string", "name": "Churn Reason", "required":
+  false}]}'
+source: '{"uri": "telco_customer_churn.csv"}'
+source_type: local
