@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/dev/Hands-ON - Projetos - TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/858036838048990654/47a2f2dccb2547c6aaa55379457f0ca6/artifacts
+end_time: 1776820304677
+entry_point_name: ''
+experiment_id: '858036838048990654'
+lifecycle_stage: active
+run_id: 47a2f2dccb2547c6aaa55379457f0ca6
+run_name: Baseline_LogisticRegression_Oficial
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776820300498
+status: 3
+tags: []
+user_id: eduar
