@@ -1,0 +1,7 @@
+artifact_location: file:///C:/dev/Hands-ON%20-%20Projetos%20-%20TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/752084729915243782
+creation_time: 1777146906878
+experiment_id: '752084729915243782'
+last_update_time: 1777146906878
+lifecycle_stage: active
+name: TechChalleng_Churn_MLP
+workspace: default

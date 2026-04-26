@@ -1,0 +1,10 @@
+artifact_location: file:///C:/dev/Hands-ON%20-%20Projetos%20-%20TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/752084729915243782/models/m-7f7e72ad0ff14526b72af21999d06a66/artifacts
+creation_timestamp: 1777213504987
+experiment_id: '752084729915243782'
+last_updated_timestamp: 1777213514015
+model_id: m-7f7e72ad0ff14526b72af21999d06a66
+model_type: null
+name: model_churn_final
+source_run_id: 65156c277297469ea8995299222ee9dd
+status: 2
+status_message: null
