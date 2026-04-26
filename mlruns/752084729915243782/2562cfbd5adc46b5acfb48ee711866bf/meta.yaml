@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/dev/Hands-ON%20-%20Projetos%20-%20TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/752084729915243782/2562cfbd5adc46b5acfb48ee711866bf/artifacts
+end_time: 1777148240469
+entry_point_name: ''
+experiment_id: '752084729915243782'
+lifecycle_stage: active
+run_id: 2562cfbd5adc46b5acfb48ee711866bf
+run_name: Treinamento_Final
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777148240156
+status: 4
+tags: []
+user_id: eduar

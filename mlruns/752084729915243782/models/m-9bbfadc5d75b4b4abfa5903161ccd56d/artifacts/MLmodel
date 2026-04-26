@@ -1,0 +1,23 @@
+artifact_path: file:///C:/dev/Hands-ON%20-%20Projetos%20-%20TechChallenge/TechChallenge/pipeline-para-previsao-de-churn/mlruns/752084729915243782/models/m-9bbfadc5d75b4b4abfa5903161ccd56d/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.12.9
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.11.0+cpu
+mlflow_version: 3.10.1
+model_id: m-9bbfadc5d75b4b4abfa5903161ccd56d
+model_size_bytes: 20441
+model_uuid: m-9bbfadc5d75b4b4abfa5903161ccd56d
+prompts: null
+run_id: 0536502cb9e840a39f5c1cbb6eff8755
+utc_time_created: '2026-04-25 21:16:43.238177'
