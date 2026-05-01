@@ -1,0 +1,20 @@
+# Comandos utilitários 
+
+.PHONY: install test run clean
+
+# Instala as dependências usando o pip
+install:
+	pip install .
+
+# Roda todos os testes (Schema e API)
+test:
+	pytest -v
+
+# Sobe a API localmente
+run:
+	uvicorn src.api.main:app --reload
+
+# Limpa arquivos temporários do Python
+clean:
+	rm -rf .pytest_cache
+	find . -type d -name "__pycache__" -exec rm -rf {} +
