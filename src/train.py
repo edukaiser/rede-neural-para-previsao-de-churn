@@ -1,33 +1,64 @@
-import mlflow
-import mlflow.pytorch
+# Bibliotecas de Sistema e Manipulação de Dados
+import os
+import pandas as pd
+import numpy as np
+import joblib  # Essencial para salvar o preprocessor.pkl (Engenharia)
+
+# PyTorch (Para MLP)
 import torch
 import torch.nn as nn
 import torch.optim as optim
+
+# MLflow (Para rastreamento de experimentos)
+import mlflow
+import mlflow.pytorch
+
+# Scikit-Learn (Para métricas, split e o Pipeline de Engenharia)
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from src.data.preprocessing import load_and_preprocess_data
-from src.data.dataset import get_dataloader
+from sklearn.model_selection import train_test_split
+
+# Módulos Internos (Pasta src/)
+from src.data.preprocessing import build_features_pipeline, initial_cleaning
+from src.data.dataset import load_churn_data, get_dataloader
 from src.models.mlp_model import ChurnMLP
 from src.utils import logger, set_seeds
 
 def train():
-    # 1. Configrações e sementes para reprodutibilidade
+    # 1. Configurações e sementes
     set_seeds(42)
     mlflow.set_experiment("TechChallenge_Churn_MLP")
 
-    # 2. Carregar dados usando preprocessing
-    X_train, X_test, y_train, y_test = load_and_preprocess_data('data/raw/Telco_customer_churn.csv')
+    # 2. Carregar e Limpar os dados 
+    X, y = load_churn_data('data/raw/Telco_customer_churn.csv')
+    
+    # 3. Criar o Pipeline Reproduzível
+    numeric_cols = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
+    categorical_cols = X.select_dtypes(include=['object']).columns.tolist()
+    
+    # Chama a função original 
+    preprocessor = build_features_pipeline(numeric_cols, categorical_cols)
 
-    # 3. Criar os DataLoaders (Gerencia o Batching de 32)
+    # 4. Split e Transformação (Onde o pipeline "aprende" as escalas)
+    X_train_raw, X_test_raw, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    # O preprocessor gera os dados prontos para a rede neural
+    X_train = preprocessor.fit_transform(X_train_raw) 
+    X_test = preprocessor.transform(X_test_raw)
+
+    # ENGENHARIA: Salva o objeto que aprendeu as escalas para a futura API
+    joblib.dump(preprocessor, "models/preprocessor.pkl") 
+
+    # 5. Criar os DataLoaders (Gerencia o Batching de 32)
     train_loader = get_dataloader(X_train, y_train, batch_size=32)
     test_loader = get_dataloader(X_test, y_test, batch_size=32, shuffle=False)
 
-    # 4. Iniciar Modelo
+    # 6. Iniciar Modelo
     input_dim = X_train.shape[1]
     model = ChurnMLP(input_size=input_dim)
     criterion = nn.BCELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
-    # 5. Loop de Treinamento com MLflow
+    # 7. Loop de Treinamento com MLflow
     epochs = 100 # Aumentamos o teto, pois o Early Stopping vai parar antes se precisar
     patience = 5  # Quantas épocas esperar sem melhora no test_loss
     best_test_loss = float('inf')
@@ -97,7 +128,8 @@ def train():
                 break
 
         mlflow.pytorch.log_model(model, "model_churn_final")
-        logger.info("Modelo treinado e registrado no MLflow com sucesso!")
+        torch.save(model, "models/baseline_model.pth")
+        logger.info("Modelo treinado e registrado em models/baseline_model.pth e MLFlow com sucesso!")
 
 if __name__ == "__main__":
     train()
