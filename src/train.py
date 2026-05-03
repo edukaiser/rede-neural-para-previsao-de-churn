@@ -126,10 +126,33 @@ def train():
             if early_stop_count >= patience:
                 print(f"Early Stopping acionado na época {epoch+1}!")
                 break
+        
+        # 8. GERAÇÃO AUTOMÁTICA DO MODEL CARD
+        final_metrics = {
+            "accuracy": float(acc),
+            "precision": float(prec),
+            "recall": float(rec),
+            "f1_score": float(f1),
+            "final_loss": float(avg_test_loss)
+        }
+        
+        final_params = {
+            "learning_rate": 0.0001,
+            "epochs_executed": epoch + 1,
+            "patience": patience,
+            "batch_size": 32,
+            "input_dim": input_dim
+        }
 
+        # Chamada do método na classe ChurnMLP
+        model.save_model_card(metrics=final_metrics, params=final_params)
+
+        # 9. Registro Final
         mlflow.pytorch.log_model(model, "model_churn_final")
         torch.save(model, "models/baseline_model.pth")
         logger.info("Modelo treinado e registrado em models/baseline_model.pth e MLFlow com sucesso!")
+    
+
 
 if __name__ == "__main__":
     train()
