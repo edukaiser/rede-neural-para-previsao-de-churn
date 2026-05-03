@@ -1,0 +1,12 @@
+services:
+  churn-api:
+    build: .
+    container_name: fiap_churn_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./docs:/app/docs
+    environment:
+      - ENV=production
+      - PYTHONUNBUFFERED=1

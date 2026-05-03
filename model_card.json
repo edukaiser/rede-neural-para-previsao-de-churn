@@ -1,0 +1,31 @@
+{
+    "model_details": {
+        "name": "Churn Prediction MLP",
+        "version": "1.0.0",
+        "developer": "Eduardo",
+        "training_date": "2026-05-03 13:09:01",
+        "architecture": "Multilayer Perceptron (PyTorch)"
+    },
+    "performance_metrics": {
+        "accuracy": 0.8194740582800284,
+        "precision": 0.6587837837837838,
+        "recall": 0.5603448275862069,
+        "f1_score": 0.6055900621118012,
+        "final_loss": 0.38765938715501264
+    },
+    "hyperparameters": {
+        "learning_rate": 0.0001,
+        "epochs_executed": 33,
+        "patience": 5,
+        "batch_size": 32,
+        "input_dim": 45
+    },
+    "limitations": {
+        "description": "Sensível a desbalanceamento de classe; requer re-treinamento se o perfil de consumo mudar drasticamente.",
+        "overfitting_mitigation": "Dropout layers (0.3 e 0.2) aplicadas para melhorar a generalização."
+    },
+    "failure_scenarios": [
+        "Dados de entrada com valores negativos em Monthly Charges.",
+        "Novos clientes com tenure muito baixo podem ter predições menos acuradas."
+    ]
+}
