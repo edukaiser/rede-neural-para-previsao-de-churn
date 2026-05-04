@@ -1,4 +1,4 @@
-## 📁 Documentação Profissional
+## 📁 Documentação
 
 Abaixo, os documentos que sustentam a governança e a confiabilidade do sistema na pasta `/docs`:
 
