@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ## 📁 Documentação 
+=======
+## 📁 Documentação
+
+>>>>>>> 5a246c95a0648e359c6738a671865d65ef5bd212
 Abaixo, os documentos que sustentam a governança e a confiabilidade do sistema na pasta `/docs`:
 
 1.  **[Arquitetura de Solução](./docs/ARQUITETURA.md)**: Detalhamento do fluxo de dados e justificativa técnica do deploy síncrono.
